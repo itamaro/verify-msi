@@ -1,2 +1,3 @@
 # verify-msi
-C# snippet demonstrating MSI authenticode &amp; signature verification
+
+C# snippet demonstrating MSI authenticode & signature verification
