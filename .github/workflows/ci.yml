@@ -36,4 +36,4 @@ jobs:
         with:
           package-name: 'VerifySignature'
       - name: Push generated global tool to GitHub registry
-          run: nuget push .\artifacts\*.nupkg -Source "GPR" -SkipDuplicate
+        run: nuget push .\artifacts\*.nupkg -Source "GPR" -SkipDuplicate
