@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+
+        <PackAsTool>true</PackAsTool>
+        <ToolCommandName>verify-signature</ToolCommandName>
+        <PackageId>verify-signature</PackageId>
+        <PackageOutputPath>../artifacts</PackageOutputPath>
+      
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    </PropertyGroup>
+
+
+
+  <!-- standard but related -->
+
+
+  <ItemGroup>
+      <ProjectReference Include="..\VerifySignature\VerifySignature.csproj" />
+    </ItemGroup>
+
+</Project>

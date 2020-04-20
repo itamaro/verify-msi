@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VerifySignature", "VerifySi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VerifySignatureTest", "VerifySignatureTest\VerifySignatureTest.csproj", "{A580C5E6-F3FF-43A1-A671-648B8D4FF593}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VerifySignature.Console", "VerifySignature.Console\VerifySignature.Console.csproj", "{5A0B4A20-824C-49A3-8E1A-433B05C097A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{A580C5E6-F3FF-43A1-A671-648B8D4FF593}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A580C5E6-F3FF-43A1-A671-648B8D4FF593}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A580C5E6-F3FF-43A1-A671-648B8D4FF593}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A0B4A20-824C-49A3-8E1A-433B05C097A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A0B4A20-824C-49A3-8E1A-433B05C097A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A0B4A20-824C-49A3-8E1A-433B05C097A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A0B4A20-824C-49A3-8E1A-433B05C097A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

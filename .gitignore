@@ -70,3 +70,5 @@ AutoTest.Net/
 
 # Coverlet
 **/coverage*.xml
+
+./artifacts
