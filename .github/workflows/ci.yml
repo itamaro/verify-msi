@@ -5,9 +5,9 @@ on: [push, pull_request]
 jobs:
   ci-windows:
     runs-on: windows-latest
+    env:
+      ORGANIZATION_NAME: ${{ secrets.ORGANIZATION_NAME }}
     steps:
-      env:
-        ORGANIZATION_NAME: ${{ secrets.ORGANIZATION_NAME }}
       - uses: actions/checkout@v2
         with:
           fetch-depth: '0'
