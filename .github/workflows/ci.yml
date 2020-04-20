@@ -35,3 +35,5 @@ jobs:
           uses: actions/delete-package-versions@v1
           with:
             package-name: 'VerifySignature'
+      - name: Push generated global tool to GitHub registry
+          run: nuget push .\artifacts\*.nupkg -Source "GPR" -SkipDuplicate
