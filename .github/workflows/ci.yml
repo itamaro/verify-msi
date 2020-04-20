@@ -1,0 +1,21 @@
+name: Build, Test and Publish
+
+on: [push, pull_request]
+
+jobs:
+  ci-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: '0'
+      - name: Fetch all history for all tags and branches
+        run: git fetch --all --tags
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1.4.0
+        with:
+          dotnet-version: '3.1.101'
+      - name: Restore, Build projects
+        run: dotnet build -c Release --disable-parallel /maxcpucount:1
+      - name: Test
+        run: dotnet test -c Release --disable-parallel /maxcpucount:1
