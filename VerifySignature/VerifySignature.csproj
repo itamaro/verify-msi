@@ -4,6 +4,7 @@
     <OutputType>Library</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseFullSemVerForNuGet>true</UseFullSemVerForNuGet>
+    <RepositoryUrl>https://github.com/3shape/verify-msi/</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
