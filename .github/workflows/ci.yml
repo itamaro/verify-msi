@@ -31,3 +31,7 @@ jobs:
         shell: bash
       - name: Push generated package to GitHub registry
         run: nuget push .\VerifySignature\bin\Release\VerifySignature*.nupkg -Source "GPR" -SkipDuplicate
+      - name: Delete the oldest package
+          uses: actions/delete-package-versions@v1
+          with:
+            package-name: 'VerifySignature'
