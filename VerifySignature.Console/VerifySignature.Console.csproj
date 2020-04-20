@@ -11,6 +11,8 @@
       
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+
+        <RepositoryUrl>https://github.com/3shape/verify-msi/</RepositoryUrl>
     </PropertyGroup>
 
 
