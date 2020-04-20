@@ -1,9 +1,8 @@
-using System;
 using System.IO;
 using NUnit.Framework;
-using ThreeShape.AuthenticodeSigning.Verification;
+using VerifySignature;
 
-namespace ThreeShape.AuthenticodeSigning.Verification.Test
+namespace VerifySignatureTest
 {
     public class SignatureVerificationTests
     {

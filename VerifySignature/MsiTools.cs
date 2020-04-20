@@ -2,8 +2,9 @@ using System;
 using System.IO;
 using System.Diagnostics;
 using System.Security.Cryptography.X509Certificates;
+using VerifySignature;
 
-namespace ThreeShape.AuthenticodeSigning.Verification
+namespace VerifySignature
 {
     public static class MsiTools
     {

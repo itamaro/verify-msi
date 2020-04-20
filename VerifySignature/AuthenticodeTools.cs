@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace ThreeShape.AuthenticodeSigning.Verification
+namespace VerifySignature
 {
     internal static class AuthenticodeTools
     {

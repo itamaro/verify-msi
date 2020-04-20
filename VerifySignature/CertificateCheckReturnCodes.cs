@@ -1,4 +1,4 @@
-namespace ThreeShape.AuthenticodeSigning.Verification
+namespace VerifySignature
 {
     public enum CertificateCheckReturnCodes
     {

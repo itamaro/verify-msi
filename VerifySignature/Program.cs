@@ -1,6 +1,6 @@
 using System.Data;
 
-namespace ThreeShape.AuthenticodeSigning.Verification
+namespace VerifySignature
 {
     class Program
     {
