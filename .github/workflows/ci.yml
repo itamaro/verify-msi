@@ -15,7 +15,11 @@ jobs:
         uses: actions/setup-dotnet@v1.4.0
         with:
           dotnet-version: '3.1.101'
-      - name: Restore, Build projects
+      - name: Restore, Build
         run: dotnet build -c Release --disable-parallel /maxcpucount:1
       - name: Test
-        run: dotnet test -c Release --disable-parallel /maxcpucount:1
+        run: dotnet test --no-restore -c Release /maxcpucount:1
+      - name: Pack
+        run: dotnet pack --configuration Release
+      - name: Publish
+        run: dotnet nuget push "bin/Release/verify-msi*nupkg" --source "github"
