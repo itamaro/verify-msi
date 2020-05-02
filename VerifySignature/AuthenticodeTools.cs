@@ -1,16 +1,16 @@
-﻿using System;
+using System;
 using System.Runtime.InteropServices;
 
-namespace CommonLib
+namespace VerifySignature
 {
     internal static class AuthenticodeTools
     {
-        [DllImport("Wintrust.dll", PreserveSig=true, SetLastError=false)]
+        [DllImport("Wintrust.dll", PreserveSig = true, SetLastError = false)]
         private static extern uint WinVerifyTrust(IntPtr hWnd, IntPtr pgActionID, IntPtr pWinTrustData);
 
         private static uint WinVerifyTrust(string fileName)
         {
-            Guid wintrust_action_generic_verify_v2 = new Guid("{00AAC56B-CD44-11d0-8CC2-00C04FC295EE}");
+            Guid wintrustActionGenericVerifyV2 = new Guid("{00AAC56B-CD44-11d0-8CC2-00C04FC295EE}");
             uint result = 0;
             using (WINTRUST_FILE_INFO fileInfo = new WINTRUST_FILE_INFO(fileName,
                                                                         Guid.Empty))
@@ -22,7 +22,7 @@ namespace CommonLib
                 WINTRUST_DATA data = new WINTRUST_DATA(fileInfo);
                 IntPtr pGuid = guidPtr;
                 IntPtr pData = wvtDataPtr;
-                Marshal.StructureToPtr(wintrust_action_generic_verify_v2,
+                Marshal.StructureToPtr(wintrustActionGenericVerifyV2,
                                        pGuid,
                                        true);
                 Marshal.StructureToPtr(data,
@@ -152,10 +152,10 @@ namespace CommonLib
     {
         public WINTRUST_DATA(WINTRUST_FILE_INFO fileInfo)
         {
-            this.cbStruct = (uint)Marshal.SizeOf(typeof(WINTRUST_DATA));
+            cbStruct = (uint)Marshal.SizeOf(typeof(WINTRUST_DATA));
             pInfoStruct = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(WINTRUST_FILE_INFO)));
             Marshal.StructureToPtr(fileInfo, pInfoStruct, false);
-            this.dwUnionChoice = UnionChoice.File;
+            dwUnionChoice = UnionChoice.File;
             pPolicyCallbackData = IntPtr.Zero;
             pSIPCallbackData = IntPtr.Zero;
             dwUIChoice = UiChoice.NoUI;
@@ -204,13 +204,13 @@ namespace CommonLib
 
     internal sealed class UnmanagedPointer : IDisposable
     {
-        private IntPtr m_ptr;
+        private IntPtr _mPtr;
         private AllocMethod m_meth;
 
         internal UnmanagedPointer(IntPtr ptr, AllocMethod method)
         {
             m_meth = method;
-            m_ptr = ptr;
+            _mPtr = ptr;
         }
 
         ~UnmanagedPointer()
@@ -222,17 +222,17 @@ namespace CommonLib
 
         private void Dispose(bool disposing)
         {
-            if (m_ptr != IntPtr.Zero)
+            if (_mPtr != IntPtr.Zero)
             {
                 if (m_meth == AllocMethod.HGlobal)
                 {
-                    Marshal.FreeHGlobal(m_ptr);
+                    Marshal.FreeHGlobal(_mPtr);
                 }
                 else if (m_meth == AllocMethod.CoTaskMem)
                 {
-                    Marshal.FreeCoTaskMem(m_ptr);
+                    Marshal.FreeCoTaskMem(_mPtr);
                 }
-                m_ptr = IntPtr.Zero;
+                _mPtr = IntPtr.Zero;
             }
             if (disposing)
             {
@@ -249,7 +249,7 @@ namespace CommonLib
 
         public static implicit operator IntPtr(UnmanagedPointer ptr)
         {
-            return ptr.m_ptr;
+            return ptr._mPtr;
         }
     }
 }
